@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -20,7 +22,9 @@ class DadosApiView(APIView):
         }, status=400)
 
     def get(self, request):
-        dados = Dados.objects.all()
+        dados = Dados.objects.filter(
+            created_at__gte=datetime.now()-timedelta(days=1)
+        )
         serializer = DadosSerializer(dados, many=True)
 
         return Response({

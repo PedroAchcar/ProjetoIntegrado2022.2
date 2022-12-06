@@ -163,11 +163,12 @@ function App() {
 					</div>
 				</div>
 				<div className='chart'>
-					<Chart 
+					<Chart
 						chartType='LineChart'
 						data={chartData}
 						width={'100%'}
 						height={'300px'}
+						options={{title: "Evolução do nível de água da caixa e da cisterna ao longo das últimas 24 horas (%)"}}
 						/>
 				</div>
 			</div>
